@@ -29,21 +29,53 @@ mostrarProductos(productos)
 
 // ------------------------------------------------------------
 // EJERCICIO 3 — Armar el pedido
-// El pedido es un arreglo con los productos que la persona va agregando.
-// Pasos (detalle en el README):
-//   1. Escucha el clic en el contenedor #catalogo (delegación de eventos).
-//   2. Busca el producto por id con .find() y agrégalo con .push().
-//   3. Dibuja el pedido con mostrarPedido() y calcula el total con .reduce().
-//   4. Botón "Vaciar pedido".
 // ------------------------------------------------------------
+
 const pedido = []
 
-// Escribe aquí tu código del Ejercicio 3
+catalogo.addEventListener('click', (evento) => {
+  const boton = evento.target.closest('button[data-id]')
+
+  if (!boton) return
+
+  const id = Number(boton.dataset.id)
+
+  const producto = productos.find(p => p.id === id)
+
+  if (producto) {
+    pedido.push(producto)
+    mostrarPedido()
+  }
+})
+
+function mostrarPedido() {
+  const listaPedido = document.getElementById('lista-pedido')
+  const total = document.getElementById('total')
+
+  listaPedido.innerHTML = pedido.map(p => `
+    <li class="border-b p-2">
+      ${p.nombre} - $${p.precio}
+    </li>
+  `).join('')
+
+  const suma = pedido.reduce((suma, p) => suma + p.precio, 0)
+
+  total.textContent = `Total: $${suma}`
+}
+
+const btnVaciar = document.getElementById('btn-vaciar')
+
+btnVaciar.addEventListener('click', () => {
+  pedido.length = 0
+  mostrarPedido()
+})
+
+mostrarPedido()
+
 
 // ------------------------------------------------------------
 // EJERCICIO 4 — Filtrar por categoría
-// Botones de categoría que llamen a mostrarProductos() con
-// productos.filter(...). El botón "Todos" muestra la lista completa.
 // ------------------------------------------------------------
 
 // Escribe aquí tu código del Ejercicio 4
+
