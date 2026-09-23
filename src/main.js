@@ -7,20 +7,25 @@ const catalogo = document.getElementById('catalogo')
 // ------------------------------------------------------------
 // EJERCICIO 2 — mostrarProductos(lista)
 // Convierte una lista de productos en tarjetas HTML y las pone en la página.
-// Forma general:
-//   catalogo.innerHTML = lista.map(p => `
-//     <article class="...las mismas clases de tu Ejercicio 1...">
-//       <h3>${p.nombre}</h3>
-//       ...
-//       <button data-id="${p.id}">Agregar</button>
-//     </article>
-//   `).join('')
 // ------------------------------------------------------------
 function mostrarProductos(lista) {
-  // Escribe aquí tu código
+  catalogo.innerHTML = lista.map(p => `
+    <article class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-xl font-bold">${p.nombre}</h3>
+      <p class="text-gray-600 mt-2">$${p.precio}</p>
+      <p class="text-sm text-gray-500 mt-1">${p.categoria}</p>
+
+      <button
+        data-id="${p.id}"
+        class="bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4 hover:bg-blue-800">
+        Agregar
+      </button>
+    </article>
+  `).join('')
 }
 
 mostrarProductos(productos)
+
 
 // ------------------------------------------------------------
 // EJERCICIO 3 — Armar el pedido

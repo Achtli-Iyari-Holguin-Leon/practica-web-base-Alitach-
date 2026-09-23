@@ -1,22 +1,67 @@
 <!doctype html>
 <html lang="es">
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Práctica web — Informática III</title>
   </head>
+
   <body class="bg-gray-100 text-gray-800">
 
-    <!-- PARTE A: comprobación de Tailwind.
-         Si esta barra se ve azul con texto blanco, Tailwind está funcionando.
-         Bórrala cuando termines la Parte A. -->
-    <div class="bg-blue-600 text-white text-center p-4 font-semibold">
-      ✅ Si ves esta barra azul, Tailwind está funcionando
-    </div>
+    <header class="bg-blue-600 text-white text-center p-6">
+      <h1 class="text-3xl font-bold">
+        Alitach
+      </h1>
 
-    <!-- EJERCICIO 1: construye aquí tu página (header, main con #catalogo, footer).
-         Las instrucciones están en el README. -->
+      <p class="text-lg mt-2">
+        Confección y perzonalizacion Textil
+      </p>
+    </header>
+
+    <main class="p-6">
+
+      <div id="catalogo" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-xl font-bold">BORDADO</h2>
+          <p class="text-gray-600 mt-2">A partir de $20</p>
+
+          <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4 hover:bg-blue-800">
+            Agregar
+          </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-xl font-bold">SERIGRAFIA </h2>
+          <p class="text-gray-600 mt-2">A partir de $50 </p>
+
+          <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4 hover:bg-blue-800">
+            Agregar
+          </button>
+        </div>
+
+        <div class="bg-white rounded-lg shadow p-4">
+          <h2 class="text-xl font-bold">Chaleco</h2>
+          <p class="text-gray-600 mt-2">A partir de $150</p>
+
+          <button class="bg-blue-600 text-white font-semibold px-4 py-2 rounded mt-4 hover:bg-blue-800">
+            Agregar
+          </button>
+        </div>
+
+      </div>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-4">
+      <p class="font-semibold">
+        Equipo ASKI
+      </p>
+    </footer>
 
     <script type="module" src="/src/main.js"></script>
+
   </body>
+
 </html>
